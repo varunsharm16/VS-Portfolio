@@ -32,6 +32,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Skip click-outside handling when mobile menu is open (mobile has its own toggle logic)
+      if (isMobileMenuOpen) return;
+
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsContactOpen(false);
         setShowPhone(false);
@@ -40,7 +43,7 @@ const Navbar = () => {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     setMounted(true);
