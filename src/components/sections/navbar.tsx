@@ -358,33 +358,18 @@ const Navbar = () => {
                         >
                           <a
                             href="mailto:vsharm21@student.ubc.ca"
-                            onMouseEnter={() => setEmailHovered(true)}
-                            onMouseLeave={() => setEmailHovered(false)}
                             className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-black/60 hover:text-black transition-colors"
                           >
                             <Mail className="w-3.5 h-3.5" />
-                            {emailHovered ? "vsharm21@student.ubc.ca" : "Email"}
+                            vsharm21@student.ubc.ca
                           </a>
-                          <div className="flex flex-col gap-2">
-                            <button
-                              onClick={() => setShowPhone(!showPhone)}
-                              onMouseEnter={() => setPhoneHovered(true)}
-                              onMouseLeave={() => setPhoneHovered(false)}
-                              className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-black/60 hover:text-black transition-colors"
-                            >
-                              <Phone className="w-3.5 h-3.5" />
-                              {phoneHovered ? "+1 (587) 703-9550" : "Phone"}
-                            </button>
-                            {showPhone && (
-                              <motion.div
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                className="pl-6.5 font-mono text-[12px] text-black/40"
-                              >
-                                (587) 703-9550
-                              </motion.div>
-                            )}
-                          </div>
+                          <a
+                            href="tel:+15877039550"
+                            className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-black/60 hover:text-black transition-colors"
+                          >
+                            <Phone className="w-3.5 h-3.5" />
+                            +1 (587) 703-9550
+                          </a>
                         </motion.div>
                       )}
                     </AnimatePresence>
