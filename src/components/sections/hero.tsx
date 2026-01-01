@@ -32,8 +32,8 @@ export default function HeroSection() {
         }} />
 
 
-      {/* Background Video (Kept for the "Isomorphic" aesthetic) */}
-      <div className="absolute inset-0 z-0 flex items-end justify-end pointer-events-none">
+      {/* Background Video - Hidden on mobile due to transparency issues */}
+      <div className="absolute inset-0 z-0 hidden md:flex items-end justify-end pointer-events-none">
         <div className="w-full h-[100%] md:h-[110%] lg:h-[120%] aspect-video relative">
           <video
             ref={videoRef}
@@ -53,7 +53,7 @@ export default function HeroSection() {
       {/* Grid Layout Container */}
       <div className="relative z-10 w-full flex-1 flex flex-col pt-[72px]">
         <div className="container mx-auto px-5 md:px-10 flex-grow flex items-center py-8 lg:py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 w-full border border-black rounded-[24px] md:rounded-[40px] overflow-hidden bg-[#E0F2FE]/80 backdrop-blur-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 w-full border border-black rounded-[24px] md:rounded-[40px] overflow-hidden bg-transparent backdrop-blur-[2px]">
 
             {/* Top Left: Headline Box */}
             <div className="border-b md:border-r border-black p-6 md:p-10 lg:p-12 flex flex-col justify-center min-h-[300px] md:min-h-[450px]">
