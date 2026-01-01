@@ -76,7 +76,7 @@ const Navbar = () => {
     }, observerOptions);
 
     const sectionIds = ["hero", "experience", "about-me", "projects"];
-    
+
     const setupObserver = () => {
       sectionIds.forEach((id) => {
         const element = document.getElementById(id);
@@ -111,8 +111,8 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-[9000] h-[72px] transition-all duration-500 flex items-center",
-        isScrolled 
-          ? "glass-nav after:absolute after:bottom-0 after:left-10 after:right-10 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-black/10 after:to-transparent" 
+        isScrolled
+          ? "glass-nav after:absolute after:bottom-0 after:left-10 after:right-10 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-black/10 after:to-transparent"
           : "bg-transparent"
       )}
     >
@@ -133,7 +133,7 @@ const Navbar = () => {
             />
           </div>
 
-          <div 
+          <div
             className={cn(
               "w-[1px] h-full bg-black transition-all duration-500 ease-in-out flex-shrink-0",
               isScrolled ? "opacity-0 w-0" : "opacity-100 w-[1px]"
@@ -165,8 +165,8 @@ const Navbar = () => {
               const isActive = activeSection === link.href.slice(1);
               if (link.name === "Contact") {
                 return (
-                  <div 
-                    key={link.name} 
+                  <div
+                    key={link.name}
                     className="relative"
                     onMouseEnter={() => setIsContactOpen(true)}
                     onMouseLeave={() => {
@@ -179,8 +179,8 @@ const Navbar = () => {
                       onClick={() => setIsContactOpen(!isContactOpen)}
                       className={cn(
                         "flex items-center h-10 px-6 border border-black font-mono text-[11px] font-medium uppercase tracking-[0.1em] transition-all rounded-full",
-                        isContactOpen 
-                          ? "bg-black text-white" 
+                        isContactOpen
+                          ? "bg-black text-white"
                           : "hover:bg-black hover:text-white"
                       )}
                     >
@@ -244,7 +244,8 @@ const Navbar = () => {
                             </div>
 
                             <div className="relative">
-                              <button
+                              <a
+                                href="tel:+15877039550"
                                 onMouseEnter={() => {
                                   setPhoneHovered(true);
                                   phoneTimerRef.current = setTimeout(() => {
@@ -256,36 +257,16 @@ const Navbar = () => {
                                   setShowPhonePopup(false);
                                   if (phoneTimerRef.current) clearTimeout(phoneTimerRef.current);
                                 }}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setShowPhone(!showPhone);
-                                }}
                                 className={cn(
-                                  "flex flex-col w-full rounded-xl transition-all duration-300 overflow-hidden",
-                                  (phoneHovered || showPhone) ? "bg-black text-white" : "hover:bg-black hover:text-white"
+                                  "flex items-center gap-3 px-4 py-3 w-full rounded-xl transition-all duration-300",
+                                  phoneHovered ? "bg-black text-white" : "hover:bg-black hover:text-white"
                                 )}
                               >
-                                <div className="flex items-center gap-3 px-4 py-3 w-full">
-                                  <Phone className="w-4 h-4 flex-shrink-0" />
-                                  <span className="font-mono text-[10px] uppercase tracking-wider whitespace-nowrap">
-                                    {phoneHovered ? "+1 (587) 703-9550" : "Phone"}
-                                  </span>
-                                </div>
-                                <AnimatePresence>
-                                  {showPhone && (
-                                    <motion.div
-                                      initial={{ height: 0, opacity: 0 }}
-                                      animate={{ height: "auto", opacity: 1 }}
-                                      exit={{ height: 0, opacity: 0 }}
-                                      className="px-4 pb-3 -mt-1 text-center border-t border-white/20 pt-2"
-                                    >
-                                      <span className="font-mono text-[12px] tracking-tight text-white/90">
-                                        (587) 703-9550
-                                      </span>
-                                    </motion.div>
-                                  )}
-                                </AnimatePresence>
-                              </button>
+                                <Phone className="w-4 h-4 flex-shrink-0" />
+                                <span className="font-mono text-[10px] uppercase tracking-wider whitespace-nowrap">
+                                  {phoneHovered ? "+1 (587) 703-9550" : "Phone"}
+                                </span>
+                              </a>
                               <AnimatePresence>
                                 {showPhonePopup && (
                                   <motion.a
@@ -322,8 +303,8 @@ const Navbar = () => {
                     href={link.href}
                     className={cn(
                       "flex items-center h-10 px-6 border border-black font-mono text-[11px] font-medium uppercase tracking-[0.1em] transition-all rounded-full",
-                      isActive 
-                        ? "bg-black text-white" 
+                      isActive
+                        ? "bg-black text-white"
                         : "hover:bg-black hover:text-white"
                     )}
                   >
