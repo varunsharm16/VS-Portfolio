@@ -343,10 +343,10 @@ const Navbar = () => {
                   <div key={link.name} className="flex flex-col border-b border-black/10 pb-4">
                     <button
                       onClick={() => setIsContactOpen(!isContactOpen)}
-                      className="flex items-center justify-between font-mono text-[13px] uppercase tracking-[0.1em] transition-transform"
+                      className="flex items-center justify-between w-full py-2 -my-2 font-mono text-[13px] uppercase tracking-[0.1em] transition-transform active:bg-black/5 rounded-lg"
                     >
                       {link.name}
-                      <ChevronDown className={cn("w-4 h-4 transition-transform", isContactOpen && "rotate-180")} />
+                      <ChevronDown className={cn("w-5 h-5 transition-transform", isContactOpen && "rotate-180")} />
                     </button>
                     <AnimatePresence>
                       {isContactOpen && (
